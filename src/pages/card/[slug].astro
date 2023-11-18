@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
+import { Debug } from 'astro:components';
 import Layout from '../../layouts/Layout.astro'
 import Card from '../../components/Card.astro'
 
@@ -19,11 +20,7 @@ type Props = {
     card: CollectionEntry<"cards">
 }
 
-
 const {card} = Astro.props;
-console.log("card: " + card.data.company );
-
-// const {Content} = await card.render();
 ---
 <Layout title="Digital Business Card">
 	<Card card={card} />
