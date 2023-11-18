@@ -1,0 +1,59 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ContactItem from "./ContactItem.astro";
+
+type Props = {
+  card: CollectionEntry<"cards">;
+};
+
+const { card } = Astro.props;
+---
+
+<div class="bg-base-100 min-h-screen flex items-center justify-center">
+  <!-- large background -->
+  <div
+    class="bg-gray-50 p-8 rounded-xl absolute top-8 left-1/2 transform -translate-x-1/2 max-w-[440px] shadow-lg"
+    style="width: 440px;"
+  >
+    <!-- card div -->
+    <div
+      class="flex flex-col items-center justify-center p-4 bg-white border border-gray-200 rounded-lg shadow-md"
+    >
+      <!-- Banner image container -->
+    </div>
+    <div class="text-left mt-4 mb-8">
+      <div class="my-5 text-gray-800">
+        <span class="text-3xl font-bold"
+          >{card.data.name} {card.data.suffix}</span
+        >
+        {
+          card.data.pronouns && (
+            <span class="text-md italic text-gray-500">{`(${card.data.pronouns})`}</span>
+          )
+        }
+      </div>
+      <!-- heading -->
+      <div class="text-2xl text-gray-700">{card.data.position}</div>
+      <div class="text-2xl text-gray-700">{card.data.company}</div>
+    </div>
+    <ul class="list-none space-y-2 px-5">
+      {card.data.email && <ContactItem value={card.data.email} type="email" />}
+      {card.data.phone && <ContactItem value={card.data.phone} type="phone" />}
+      {
+        card.data.website && (
+          <ContactItem value={card.data.website} type="website" />
+        )
+      }
+      {
+        card.data.address && (
+          <ContactItem value={card.data.address} type="address" />
+        )
+      }
+    </ul>
+    <button
+      class="mt-4 px-6 py-3 bg-primary text-black rounded-full hover:bg-secondary w-full font-black"
+      >Save Contact</button
+    >
+    <style></style>
+  </div>
+</div>

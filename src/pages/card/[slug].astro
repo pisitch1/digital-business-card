@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import Layout from '../../layouts/Layout.astro'
+import Card from '../../components/Card.astro'
+
+export async function getStaticPaths() {
+  const cards = await getCollection ("cards");
+
+  const paths = cards.map(card => { 
+    return { 
+        params: { slug: card.slug }, 
+        props: {card}, }
+    });
+  return paths;
+}
+
+type Props = {
+    card: CollectionEntry<"cards">
+}
+
+
+const {card} = Astro.props;
+console.log("card: " + card.data.company );
+
+// const {Content} = await card.render();
+---
+<Layout title="Digital Business Card">
+	<Card card={card} />
+</Layout>
