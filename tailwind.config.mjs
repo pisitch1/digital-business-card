@@ -15,7 +15,15 @@ export default {
         error: "#A43C38",
       },
       fontFamily: {
-        sans: ["Montserrat", "sans-serif"],
+        // sans: ["Montserrat", "sans-serif"],
+        sans: [
+          "HelveticaNeue-Light",
+          "Helvetica Neue Light",
+          "Helvetica Neue",
+          "Helvetica, Arial",
+          "sans-serif",
+        ],
+        // sans: [ "Inter", "sans-serif", ],
       },
     },
   },
