@@ -5,7 +5,10 @@ import { z, defineCollection } from 'astro:content';
 const cardsCollection = defineCollection({
   type: 'content', // v2.5.0 and later
   schema: ({image}) => z.object({
-    name: z.string(),
+    firstName: z.string(),
+    lastName: z.string(),
+    middleName: z.string().optional(),
+    prefix: z.string().optional(),
     suffix: z.string().optional(),
     email: z.string().optional(),
     pronouns: z.string().optional(),
@@ -14,6 +17,10 @@ const cardsCollection = defineCollection({
     website: z.string().optional(),
     phone: z.string().optional(),
     address: z.string().optional(),
+    socialMedia: z.array(z.object({
+      platform: z.enum(['Linkedin', 'Facebook', 'Yelp']),
+      url: z.string(),
+    })).optional(),
   }),
 });
 
