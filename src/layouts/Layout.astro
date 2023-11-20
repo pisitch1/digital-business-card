@@ -1,38 +1,34 @@
 ---
-import { Debug } from 'astro:components';
+import { Debug } from "astro:components";
 
-// const {
-//     title = "Digital Business Cards",
-//     description = "Digital Business Cards for Professionals",
-// } = Astro.props
-
-const {title, description} = Astro.props;
+const { title, description } = Astro.props;
 ---
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">        
-        
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />        
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-        <meta name="description" content={description}>
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={Astro.url} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <!-- <meta property="og:image" content={image} /> -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={Astro.url} />
-        <meta property="twitter:title" content={title} />
 
-        <!-- <meta property="twitter:description" content={description} /> -->
-        <!-- <meta property="twitter:image" content={image} /> -->
-	</head>
-	<body>
-        <slot />
-	</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <!-- <meta property="og:image" content={image} /> -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+
+    <!-- <meta property="twitter:description" content={description} /> -->
+    <!-- <meta property="twitter:image" content={image} /> -->
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
