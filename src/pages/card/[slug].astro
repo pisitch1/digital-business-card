@@ -21,7 +21,9 @@ type Props = {
 }
 
 const {card} = Astro.props;
+const title = `${card.data.firstName} ${card.data.lastName} ${card.data.suffix} - Card`;
+const description = `${card.data.firstName} ${card.data.lastName} ${card.data.suffix} - ${card.data.position} | Business Card'`;
 ---
-<Layout title="Digital Business Card">
+<Layout title={title} description={description}>
 	<Card card={card} />
 </Layout>

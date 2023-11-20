@@ -3,27 +3,14 @@ import type { CollectionEntry } from "astro:content";
 import ContactItem from "./ContactItem.astro";
 import { Image } from "astro:assets";
 import localLogofile from "../content/cards/images/ssd.svg";
-// import { Debug } from "astro:components";
+import SaveContactButton from "./react/SaveContactButton";
 
 type Props = {
   card: CollectionEntry<"cards">;
 };
 const { card } = Astro.props;
-const googleMapPrefix = "https://maps.google.com/?q=";
-
-const vcardData = `BEGIN:VCARD
-VERSION:4.0
-N:${card.data.lastName};${card.data.firstName};${card.data.middleName};${card.data.prefix};${card.data.suffix}
-FN;CHARSET=utf-8:
-${card.data.company ? `ORG:${card.data.company}` : ""}
-${card.data.position ? `TITLE:${card.data.position}` : ""}
-${card.data.email ? `EMAIL;INTERNET;TYPE=Email:${card.data.email}` : ""}
-${card.data.website ? `URL;TYPE=Website:${card.data.website}` : ""}
-${card.data.phone ? `TEL;TYPE=Call:${card.data.phone}` : ""}
-${card.data.address ? `ADR:${card.data.address}` : ""}
-${card.data.address ? `URL;TYPE=Address:${googleMapPrefix}${encodeURIComponent(card.data.address)}` : ""}
-END:VCARD`;
 ---
+
 <div class="bg-base-100 min-h-screen min-w-full flex items-center justify-center">
   <!-- large background -->
   <div class="bg-gray-50 p-8 rounded-xl max-w-[440px] shadow-lg" style="width: 440px;">
@@ -47,38 +34,16 @@ END:VCARD`;
       {card.data.position && <div class="text-2xl text-gray-700">{card.data.position}</div>}
       {card.data.company && <div class="text-2xl text-gray-700 italic">{card.data.company}</div>}
     </div>
-    <ul class="list-none space-y-2 px-5">
+    <ul class="list-none space-y-2">
       {card.data.email && <ContactItem value={card.data.email} type="email" />}
       {card.data.phone && <ContactItem value={card.data.phone} type="phone" />}
       {card.data.website && <ContactItem value={card.data.website} type="website" />}
       {card.data.address && <ContactItem value={card.data.address} type="address" />}
     </ul>
+    <div class="flex justify-center items-center mt-4">
+      <SaveContactButton card={card} client:idle />
+    </div>
 
-    <button
-      id="btnSave"
-      data-vcarddata={vcardData}
-      data-name={card.data.lastName}
-      class="mt-4 px-6 py-3 font-black bg-primary text-white rounded-full hover:bg-secondary w-full shadow-lg"
-      >Save Contact</button
-    >
-    <script>
-      const saveBtn = document.getElementById("btnSave");
-      if (saveBtn)
-        saveBtn.addEventListener("click", function () {
-          let vcard = saveBtn.dataset.vcarddata;
-          if (vcard) {
-            let blob = new Blob([vcard], { type: "text/vcard" });
-            let url = URL.createObjectURL(blob);
-            const newLink = document.createElement("a");
-            newLink.download = this.dataset.name + ".vcf";
-            newLink.textContent = this.dataset.name || "";
-            newLink.href = url;
-
-            newLink.click();
-          }
-        });
-    </script>
-
-    <style></style>
+    
   </div>
 </div>
