@@ -11,39 +11,42 @@ type Props = {
 const { card } = Astro.props;
 ---
 
-<div class="bg-base-100 min-h-screen min-w-full flex items-center justify-center">
-  <!-- large background -->
-  <div class="bg-gray-50 p-8 rounded-xl max-w-[440px] shadow-lg" style="width: 440px;">
-    <!-- card div -->
-    <div class="flex flex-col items-center justify-center p-4 bg-white border border-gray-200 rounded-lg shadow-md">
-      <!-- Banner image container -->
-      <Image src={localLogofile} alt=`${card.data.company} Logo` />
-    </div>
-    <div class="text-left mt-4 mb-8">
-      <div class="my-5 text-gray-800">
-        <span class="text-3xl font-bold">
-          {
-            `${card.data.prefix ? card.data.prefix + " " : ""}` +
-              `${card.data.firstName} ${card.data.middleName ? card.data.middleName + " " : ""}${card.data.lastName}` +
-              `${card.data.suffix ? " " + card.data.suffix : ""}`
-          }
-        </span>
-        {card.data.pronouns && <span class="text-md italic text-gray-500">{`(${card.data.pronouns})`}</span>}
+<div class={card.data.theme}>
+  <!-- Applying theme -->
+  <div class="min-h-screen min-w-full flex items-center justify-center">
+    <!-- large background -->
+    <div class="bg-gray-50 p-8 rounded-xl max-w-[440px] shadow-lg" style="width: 440px;">
+      <!-- card div -->
+      <!-- <div class="flex flex-col items-center justify-center p-4 bg-white border border-gray-200 rounded-lg shadow-md"> -->
+        <!-- Banner image container -->
+        <!-- <Image src={localLogofile} alt=`${card.data.company} Logo` /> -->
+      <!-- </div> -->
+      <div class="text-left mt-4 mb-8">
+        <div class="my-5 text-skin-base">
+          <span class="text-3xl font-bold">
+            {
+              `${card.data.prefix ? card.data.prefix + " " : ""}` +
+                `${card.data.firstName} ${card.data.middleName ? card.data.middleName + " " : ""}${
+                  card.data.lastName
+                }` +
+                `${card.data.suffix ? " " + card.data.suffix : ""}`
+            }
+          </span>
+          {card.data.pronouns && <span class="text-md italic text-skin-muted">{`(${card.data.pronouns})`}</span>}
+        </div>
+        <!-- heading -->
+        {card.data.position && <div class="text-2xl text-skin-mute">{card.data.position}</div>}
+        {card.data.company && <div class="text-2xl text-skin-mute italic">{card.data.company}</div>}
       </div>
-      <!-- heading -->
-      {card.data.position && <div class="text-2xl text-gray-700">{card.data.position}</div>}
-      {card.data.company && <div class="text-2xl text-gray-700 italic">{card.data.company}</div>}
+      <ul class="list-none space-y-2 text-skin-muted">
+        {card.data.email && <ContactItem value={card.data.email} type="email" />}
+        {card.data.phone && <ContactItem value={card.data.phone} type="phone" />}
+        {card.data.website && <ContactItem value={card.data.website} type="website" />}
+        {card.data.address && <ContactItem value={card.data.address} type="address" />}
+      </ul>
+      <div class="flex justify-center items-center mt-4">
+        <SaveContactButton card={card} client:idle />
+      </div>
     </div>
-    <ul class="list-none space-y-2">
-      {card.data.email && <ContactItem value={card.data.email} type="email" />}
-      {card.data.phone && <ContactItem value={card.data.phone} type="phone" />}
-      {card.data.website && <ContactItem value={card.data.website} type="website" />}
-      {card.data.address && <ContactItem value={card.data.address} type="address" />}
-    </ul>
-    <div class="flex justify-center items-center mt-4">
-      <SaveContactButton card={card} client:idle />
-    </div>
-
-    
   </div>
 </div>

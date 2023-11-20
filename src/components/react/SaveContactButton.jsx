@@ -2,11 +2,9 @@ import React from "react";
 
 function SaveContactButton(props) {
   function generateVcardData(card) {
-    const googleMapPrefix = "https://maps.google.com/?q=";
-
     return `BEGIN:VCARD
 VERSION:4.0
-N:${card.data.lastName};${card.data.firstName};${card.data.middleName};${card.data.prefix};${card.data.suffix}
+N:${card.data.lastName};${card.data.firstName};${card.data.middleName ? card.data.middleName : ''};${card.data.prefix ? card.data.prefix : ''};${card.data.suffix ? card.data.suffix : ''}
 FN;CHARSET=utf-8:
 ${card.data.position ? `TITLE:${card.data.position}` : ""}
 ${card.data.company ? `ORG:${card.data.company}` : ""}
@@ -33,7 +31,7 @@ END:VCARD`;
   return (
     <button
       onClick={handleSaveContact}
-      className="px-6 py-3 m-3 font-bold min-w-full bg-primary text-white rounded-full hover:bg-secondary">
+      className="px-6 py-3 m-3 font-bold min-w-full bg-skin-fill text-skin-inverted rounded-full hover:bg-skin-fill-hover">
       Save Contact
     </button>
   );

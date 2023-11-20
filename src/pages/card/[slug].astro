@@ -4,6 +4,8 @@ import { getCollection } from "astro:content";
 import { Debug } from 'astro:components';
 import Layout from '../../layouts/Layout.astro'
 import Card from '../../components/Card.astro'
+import '../styles/customBase.css';
+
 
 export async function getStaticPaths() {
   const cards = await getCollection ("cards");

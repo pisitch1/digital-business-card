@@ -5,6 +5,7 @@ import { z, defineCollection } from 'astro:content';
 const cardsCollection = defineCollection({
   type: 'content', // v2.5.0 and later
   schema: ({image}) => z.object({
+    theme: z.string().optional(),
     firstName: z.string(),
     lastName: z.string(),
     middleName: z.string().optional(),

@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .theme-blue {
+    --color-text-base: 31, 41, 55;
+    --color-text-muted: 75, 85, 99;
+    --color-text-inverted: 229, 231, 235;
+    --color-fill: 37, 85, 95;
+    --color-fill-hover: 143, 126, 79;
+    --color-accent: 136, 41, 47;
+    --color-accent-hover: 238, 242, 255;
+    --color-muted: 162, 167, 158;
+  }
+  .theme-red {
+    --color-text-base: 31, 41, 55;
+    --color-text-muted: 75, 85, 99;
+    --color-text-inverted: 229, 231, 235;
+    --color-fill: 185, 28, 28;
+    --color-fill-hover: 242, 106, 141;
+    --color-accent: 203, 238, 243;
+    --color-accent-hover: 203, 238, 243;
+    --color-muted: 244, 156, 187;
+  }
+  .theme-green {
+    --color-text-base: 31, 41, 55;
+    --color-text-muted: 75, 85, 99;
+    --color-text-inverted: 229, 231, 235;
+    --color-fill: 107,165,57;
+    --color-fill-hover: 129, 158, 103;
+    --color-accent: 82, 43, 71;
+    --color-accent-hover: 123, 8, 40;
+    --color-muted: 153, 201, 111;
+  }  
+  .theme-brown {
+    --color-text-base: 31, 41, 55;
+    --color-text-muted: 75, 85, 99;
+    --color-text-inverted: 229, 231, 235;
+    --color-fill: 84, 8, 4;
+    --color-fill-hover: 135, 132, 114;
+    --color-accent: 222, 84, 30;
+    --color-accent-hover: 214, 214, 177;
+    --color-muted: 214, 214, 177;
+  }    
+}

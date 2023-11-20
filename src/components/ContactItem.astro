@@ -46,7 +46,7 @@ function svgData(type: ContactType) {
     <!-- Insert email icon here -->
 
     <div class="flex items-center">
-      <div class="bg-primary rounded-full p-1 mr-2 text-white">
+      <div class="bg-skin-fill rounded-full p-1 mr-2 text-white">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -58,7 +58,7 @@ function svgData(type: ContactType) {
           <path stroke-linecap="round" d={svgData(type)}></path>
         </svg>
       </div>
-      <div class="text-gray-500 hover:text-accent"><span>{value}</span></div>
+      <div class="text-skin-mute"><span>{value}</span></div>
     </div>
   </a>
 </li>
