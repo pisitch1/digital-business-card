@@ -2,7 +2,6 @@
 import type { CollectionEntry } from "astro:content";
 import ContactItem from "./ContactItem.astro";
 import { Image } from "astro:assets";
-import localLogofile from "../content/cards/images/ssd.svg";
 import SaveContactButton from "./react/SaveContactButton";
 
 type Props = {
@@ -17,10 +16,10 @@ const { card } = Astro.props;
     <!-- large background -->
     <div class="bg-gray-50 p-8 rounded-xl max-w-[440px] shadow-lg" style="width: 440px;">
       <!-- card div -->
-      <!-- <div class="flex flex-col items-center justify-center p-4 bg-white border border-gray-200 rounded-lg shadow-md"> -->
+      <div class="flex flex-col items-center justify-center p-4 bg-white border border-gray-200 rounded-lg shadow-md">
       <!-- Banner image container -->
-      <!-- <Image src={localLogofile} alt=`${card.data.company} Logo` /> -->
-      <!-- </div> -->
+      <Image src={card.data.image} alt=`${card.data.company} Logo` />
+      </div>
       <div class="text-left mt-4 mb-8">
         <div class="my-5 text-skin-base">
           <span class="text-3xl font-bold" transition:name="fullname">

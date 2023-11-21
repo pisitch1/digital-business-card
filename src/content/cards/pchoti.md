@@ -15,4 +15,5 @@ address: 509 Olive Way Ste 1438 Seattle WA 98101
 socialMedia:
   - platform: Yelp
     url: https://www.yelp.com/biz/seattle-specialty-dentistry-seattle-2
+image: './images/pchoti.png'
 ---

@@ -22,6 +22,7 @@ const cardsCollection = defineCollection({
       platform: z.enum(['Linkedin', 'Facebook', 'Yelp']),
       url: z.string(),
     })).optional(),
+    image: image(),
   }),
 });
 
