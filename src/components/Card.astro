@@ -23,7 +23,7 @@ const { card } = Astro.props;
       <!-- </div> -->
       <div class="text-left mt-4 mb-8">
         <div class="my-5 text-skin-base">
-          <span class="text-3xl font-bold">
+          <span class="text-3xl font-bold" transition:name="fullname">
             {
               `${card.data.prefix ? card.data.prefix + " " : ""}` +
                 `${card.data.firstName} ${card.data.middleName ? card.data.middleName + " " : ""}${

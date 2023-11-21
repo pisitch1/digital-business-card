@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 const { title, description } = Astro.props;
 ---
 
@@ -26,7 +28,6 @@ const { title, description } = Astro.props;
     <!-- <meta property="twitter:image" content={image} /> -->
     <!-- Google tag (gtag.js) -->
     <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-DRF5DWY53T"></script>
-
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
 
@@ -36,7 +37,10 @@ const { title, description } = Astro.props;
       gtag("js", new Date());
       gtag("config", "G-DRF5DWY53T");
     </script>
-  </head>
+
+<ViewTransitions />
+
+</head>
   <body>
     <slot />
   </body>
