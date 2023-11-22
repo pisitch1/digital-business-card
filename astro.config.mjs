@@ -3,8 +3,9 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
-
 import vercel from "@astrojs/vercel/serverless";
+
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +15,6 @@ export default defineConfig({
       forward: ["dataLayer.push"]
     }
   }), sitemap()],
-  output: "server",
-  adapter: vercel()
+  output: "hybrid",
+  adapter: cloudflare()
 });
