@@ -15,6 +15,6 @@ export default defineConfig({
       forward: ["dataLayer.push"]
     }
   }), sitemap()],
-  output: "hybrid",
+  output: "server",
   adapter: cloudflare()
 });
